@@ -1,9 +1,9 @@
 import functions
-import time
+#import time
 
 while True:
-    current_time = time.strftime("%b %d, %Y %H:%M:%S")
-    print(current_time)
+    #current_time = time.strftime("%b %d, %Y %H:%M:%S")
+    #print(current_time)
     user_action = input("Choose if you want to add, show, edit ,complete or exit:")
     user_action = user_action.strip().lower()
 
