@@ -70,8 +70,8 @@ try:
             case sg.WIN_CLOSED:
                 break
 except IndexError:
-    print("Enter todo in the list")
+    sg.popup("Enter todo in the list")
 
 
 
-window.close()
+#window.close()
