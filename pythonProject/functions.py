@@ -1,3 +1,6 @@
+import time
+from datetime import datetime
+current_time = datetime.now().strftime("%A, %B %d, %Y - %H:%M:%S")
 def get_todo(filepath = "todo_list.txt"):
     """
         Reading text file and return list of to-do items.
