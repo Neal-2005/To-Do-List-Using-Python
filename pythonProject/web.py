@@ -27,7 +27,7 @@ def send_email(task, deadline):
     try:
         with smtplib.SMTP('smtp.gmail.com', 587) as smtp:
             smtp.starttls()
-            smtp.login('mhatreneal@gmail.com', 'rbfm voky gtdb vnke')
+            smtp.login('sender@gmail.com', 'your_gmail_app_password')
             smtp.send_message(msg)
             st.success(f"Email reminder successfully sent to {email}")
     except Exception as e:
@@ -61,8 +61,6 @@ def get_status(deadline):
         return "❗ Overdue"
     elif deadline_date == today:
         return "⚠️ Due Today"
-    elif (deadline_date - today).days <= 3:
-        return "⏳ Due Soon"
     else:
         return "🟢 Upcoming"
 
@@ -77,6 +75,7 @@ color_map = {
 
 for todo in todos:
     parts = todo.strip().split(" | ")
+
     if len(parts) == 2:  # Ensure proper format
         task, deadline = parts
         status = get_status(deadline)
@@ -88,8 +87,7 @@ for todo in todos:
             "end": deadline,
             "color": color_map[status]
         })
-    else:
-        st.warning(f"Skipping invalid task format: {todo.strip()}")
+
 
 # To-Do List
 st.title("📝 My Todo-App")
